@@ -1,0 +1,33 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-items {
+	list-style: none;
+	display: flex;
+	float: right;
+}
+
+.nav-items li {
+	padding: 10px;
+}
+
+.react-logo {
+	width: 50px;
+	padding-left: 10px;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	background-color: #666;
+	color: whitesmoke;
+}
