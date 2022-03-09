@@ -1,0 +1,31 @@
+.meme-generator-form {
+	font-size: 14px;
+	padding: 20px;
+}
+
+.input-row {
+	display: flex;
+	gap: 15px;
+	margin: 15px auto;
+}
+
+.input-row > .form-input {
+	font-family: 'Karla', sans-serif;
+	flex-grow: 1;
+	border-radius: 5px;
+	border: 1px solid #D5D4D8;
+	text-indent: 5px;
+	padding: 5px;
+	font-size: 1rem;
+}
+
+.form-button {
+	padding: 5px;
+	color: whitesmoke;
+	width: 100%;
+	font-family: 'Karla', sans-serif;
+	border-radius: 5px;
+	background: rgb(36, 0, 32);
+	background: linear-gradient(90deg, rgba(36, 0, 32, 1) 0%, rgba(108, 9, 121, 1) 35%, rgba(166, 0, 255, 1) 100%);
+	font-size: 1rem;
+}

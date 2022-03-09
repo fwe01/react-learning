@@ -1,0 +1,28 @@
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	background: rgb(36, 0, 32);
+	background: linear-gradient(90deg, rgba(36, 0, 32, 1) 0%, rgba(108, 9, 121, 1) 35%, rgba(166, 0, 255, 1) 100%);
+	height: 65px;
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	flex-direction: row;
+}
+
+.logo-container > .logo-img {
+	height: 50px;
+}
+
+.logo-container > .logo-text {
+	color: whitesmoke;
+}
+
+.slogan-text {
+	color: whitesmoke;
+}
