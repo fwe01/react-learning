@@ -1,17 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Form.css'
-import memesData from "../../memesData";
 import Meme from "../Meme/Meme";
+import GetMemes from "../../Service/GetMemes";
+import meme from "../Meme/Meme";
 
 const Form = () => {
 	let [imageUrl, setImageUrl] = useState('./images/troll-face.png');
 	let [memeText, setMemeText] = useState(
 		{
-			topText : 'This is top text',
-			bottomText : 'This is bottom text',
+			topText: 'This is top text',
+			bottomText: 'This is bottom text',
 		}
 	);
-	let [allMemes, setAllMemes] = useState(memesData.data.memes)
+	let [allMemes, setAllMemes] = useState([])
+
+	useEffect(() => {
+		GetMemes.execute().then((memes) => {
+			setAllMemes(memes)
+		})
+	}, [imageUrl]);
+
 
 	function getRandomMeme() {
 		let randomNumber = Math.floor(Math.random() * allMemes.length)
@@ -19,11 +27,11 @@ const Form = () => {
 		setImageUrl(selectedMemes.url)
 	}
 
-	function handleChange (event){
+	function handleChange(event) {
 		setMemeText(prevText => {
 			return {
 				...prevText,
-				[event.target.name] : event.target.value
+				[event.target.name]: event.target.value
 			}
 		})
 	}
@@ -33,8 +41,14 @@ const Form = () => {
 		<div>
 			<div className={'meme-generator-form'}>
 				<div className="input-row">
-					<input name={'topText'} type="text" placeholder={'Top text'} className={'form-input'} onChange={handleChange}/>
-					<input name={'bottomText'} type="text" placeholder={'Bottom text'} className={'form-input'} onChange={handleChange}/>
+					<input name={'topText'} type="text" placeholder={'Top text'} className={'form-input'}
+						   onChange={handleChange}
+						   value={memeText.topText}
+					/>
+					<input name={'bottomText'} type="text" placeholder={'Bottom text'} className={'form-input'}
+						   onChange={handleChange}
+						   value={memeText.bottomText}
+					/>
 				</div>
 				<button className={'form-button'} onClick={getRandomMeme}>
 					Get a new meme image
